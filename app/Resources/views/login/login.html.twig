@@ -1,0 +1,18 @@
+<html>
+<body>
+<title>Test website</title>
+<link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+
+<h1>This is a test website</h1>
+<div class="center">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    {% block error %}{% endblock %}
+</div>
+
+<p>Don't have an account? Click <a href="{{ path('signup') }}">here</a></p>
+
+<script src="{{ asset('js/login.js') }}"></script>
+</body>
+</html>
