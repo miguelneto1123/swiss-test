@@ -1,3 +1,6 @@
 {% extends 'login/login.html.twig' %}
 
-{% block error %} <p>Username not registered, please try again</p>{% endblock %}
+{% block error %}
+    <p>Username not registered, please try again</p>
+    {{ parent() }}
+{% endblock %}

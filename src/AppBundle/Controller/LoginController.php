@@ -84,16 +84,23 @@ class LoginController extends Controller
 
         if($form->isSubmitted() && $form->isValid()){
             $cus = $form->getData();
+            $search = $this->getDoctrine()->getRepository('AppBundle:Customer')->findOneByUsername($cus->getUsername());
 
-            $search = $this->getDoctrine()->getRepository('AppBundle:Customer')->findOneByEmail($cus->getEmail());
             if (!$search) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($cus);
-                $em->flush();
+                $search = $this->getDoctrine()->getRepository('AppBundle:Customer')->findOneByEmail($cus->getEmail());
+                if (!$search) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($cus);
+                    $em->flush();
 
-                return $this->redirectToRoute("successsignup", array('name' => $cus->getUsername()));
+                    return $this->redirectToRoute("successsignup", array('name' => $cus->getUsername()));
+                } else {
+                    return $this->render('signup/emailRegistered.html.twig', array(
+                        'form' => $form->createView()
+                    ));
+                }
             } else {
-                return $this->render('signup/emailRegistered.html.twig', array(
+                return $this->render('signup/usernameTaken.html.twig', array(
                     'form' => $form->createView()
                 ));
             }

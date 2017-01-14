@@ -3,7 +3,7 @@
 <title>Test website</title>
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
 
-<h1>This is a test website</h1>
+<h1>Fill up your registration</h1>
 <div class="center">
     {{ form_start(form) }}
     {{ form_widget(form) }}
@@ -11,6 +11,7 @@
     {% block error %}{% endblock %}
 </div>
 
+<p><a href="{{ path('login') }}">Home</a></p>
 <script src="{{ asset('js/signup.js') }}"></script>
 </body>
 </html>

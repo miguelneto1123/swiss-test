@@ -1,26 +1,27 @@
 body {
-    background-image: url(http://www.kanhangadvartha.com/data/out/9/IMG_448467.jpg);
+    background-image: url(http://www.walldevil.com/wallpapers/a94/stars-space-shooting-planets-large-small-wallpaper.jpg);
+    background-color: black;
     color: white;
-}
-
-.center {
-    width: 50%;
-    height: 50%;
-    margin: auto;
+    text-align: center;
+    font-family: fantasy;
+    padding-top: 250px;
+    animation-duration: 2s;
+    animation-name: fadein;
 }
 
 h1 {
-    text-align: center;
-    font-family: fantasy;
     font-size: 72px;
-    color: white;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 a {
     color: #fff;
-}
-
-p {
-    text-align: center;
-    font-family: fantasy;
 }
